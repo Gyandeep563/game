@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>ReflexRush — Free Online Reaction Time Test</title>
+  
+  <!-- SEO & Social Meta Tags -->
+  <meta name="description" content="Test your reaction speed in milliseconds with a free online reaction time game. Track your personal best, challenge friends, and improve your reflexes.">
+  <meta name="keywords" content="reaction time test, reaction speed game, reflex challenge, reflexrush, reaction test online, benchmark reaction speed">
+  <meta name="author" content="ReflexRush">
+  <meta name="theme-color" content="#080B16">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://reflexrush.app/">
+  <meta property="og:title" content="ReflexRush — Reaction Speed Challenge">
+  <meta property="og:description" content="Think you're fast? Test your reflexes in milliseconds, beat personal bests, and challenge your friends!">
+  <meta property="og:image" content="favicon.svg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ReflexRush — Reaction Speed Challenge">
+  <meta name="twitter:description" content="Test your reaction speed in milliseconds with free instant results. Can you beat the benchmark?">
+  <meta name="twitter:image" content="favicon.svg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="favicon.svg">
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header class="site-header" id="top">
+    <div class="header-container">
+      <a href="#top" class="brand-logo" aria-label="ReflexRush Home">
+        <div class="logo-icon-wrap">
+          <svg class="logo-svg" viewBox="0 0 40 40" width="32" height="32" aria-hidden="true">
+            <circle cx="20" cy="20" r="16" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="3 3" opacity="0.6"/>
+            <polygon points="21,5 11,21 19,21 16,35 29,16 21,16" fill="url(#headerBoltGrad)" />
+            <defs>
+              <linearGradient id="headerBoltGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#20D9E8"/>
+                <stop offset="100%" stop-color="#7C5CFC"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span class="brand-name">Reflex<span class="accent-text">Rush</span></span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="#game-section" class="nav-link">Play</a></li>
+          <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+          <li><a href="#statistics" class="nav-link">Statistics</a></li>
+          <li><a href="#leaderboard" class="nav-link">Leaderboard</a></li>
+        </ul>
+      </nav>
+
+      <!-- Utility Actions -->
+      <div class="nav-actions">
+        <!-- Sound Toggle Button -->
+        <button id="sound-toggle-btn" class="icon-btn" aria-label="Toggle sound effects" title="Toggle sound">
+          <svg id="sound-icon-on" class="sound-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zm-2.5-1.23l-5 5H2v10h4.5l5 5V2zM14 8.77v6.46c1.15-.6 2-1.8 2-3.23s-.85-2.63-2-3.23z"/>
+          </svg>
+          <svg id="sound-icon-off" class="sound-icon hidden" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+          </svg>
+        </button>
+
+        <!-- CTA Play Button -->
+        <a href="#game-section" class="btn btn-primary btn-sm nav-play-btn">Play Now</a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-btn" class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
+      <ul class="mobile-nav-links">
+        <li><a href="#game-section" class="mobile-nav-link">Play Test</a></li>
+        <li><a href="#how-it-works" class="mobile-nav-link">How It Works</a></li>
+        <li><a href="#statistics" class="mobile-nav-link">My Statistics</a></li>
+        <li><a href="#leaderboard" class="mobile-nav-link">Leaderboard & Benchmarks</a></li>
+        <li><a href="#faq" class="mobile-nav-link">FAQ & Latency</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" aria-labelledby="hero-title">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            <span>ReflexRush • Reaction Speed Challenge</span>
+          </div>
+
+          <h1 id="hero-title" class="hero-title">
+            Think You're Fast?<br>
+            <span class="gradient-text">Prove It.</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            Test your reflexes in milliseconds. Challenge your friends, beat your personal best, and discover how fast you really are.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#game-section" class="btn btn-primary btn-lg">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" class="btn-icon">
+                <polygon points="5,3 19,12 5,21"/>
+              </svg>
+              Test My Reflexes
+            </a>
+            <a href="#how-it-works" class="btn btn-secondary btn-lg">How It Works</a>
+          </div>
+
+          <!-- Feature Indicators -->
+          <div class="feature-indicators">
+            <div class="indicator-item">
+              <div class="indicator-icon">⚡</div>
+              <div class="indicator-text">
+                <span class="indicator-title">5 reaction rounds</span>
+                <span class="indicator-sub">Precision measured</span>
+              </div>
+            </div>
+            <div class="indicator-item">
+              <div class="indicator-icon">🎯</div>
+              <div class="indicator-text">
+                <span class="indicator-title">Instant results</span>
+                <span class="indicator-sub">Accurate to 1 ms</span>
+              </div>
+            </div>
+            <div class="indicator-item">
+              <div class="indicator-icon">🚀</div>
+              <div class="indicator-text">
+                <span class="indicator-title">Free to play</span>
+                <span class="indicator-sub">No sign-up required</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Subtle Animated Interactive Widget -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="radar-card">
+            <div class="radar-pulse"></div>
+            <div class="radar-center">
+              <span class="pulse-timer" id="hero-demo-timer">215 ms</span>
+              <span class="pulse-label">Top 5% Reflexes</span>
+            </div>
+            <div class="radar-orbit orbit-1"></div>
+            <div class="radar-orbit orbit-2"></div>
+            <div class="radar-orbit orbit-3"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ad Placement 1: Below Hero (Responsive Banner) -->
+    <section class="ad-section" aria-label="Advertisement Placement 1">
+      <div class="container">
+        <div class="ad-slot ad-slot-leaderboard" data-ad-unit="hero-banner">
+          <span class="ad-badge">Advertisement</span>
+          <div class="ad-content-placeholder">
+            <span class="ad-text-sample">Responsive Ad Space (728x90 / 320x100) — Approved Ad Network Integration Slot</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Friend Challenge Active Banner (Conditional) -->
+    <section id="challenge-banner-container" class="container hidden" aria-live="polite">
+      <div class="challenge-alert-card">
+        <div class="challenge-badge">⚔️ Challenge Received</div>
+        <div class="challenge-info">
+          <p class="challenge-text">
+            <strong id="challenger-name">A Friend</strong> scored an average of 
+            <span id="challenger-score" class="highlight-score">245 ms</span>!
+          </p>
+          <span class="challenge-prompt">Can you beat their reaction time in this 5-round battle?</span>
+        </div>
+        <button id="dismiss-challenge-btn" class="btn btn-ghost btn-sm" aria-label="Dismiss challenge banner">✕</button>
+      </div>
+    </section>
+
+    <!-- Main Game Section -->
+    <section class="game-section" id="game-section" aria-labelledby="game-title">
+      <div class="container game-container">
+        <!-- Game Header & Mode Switcher -->
+        <div class="game-control-header">
+          <h2 id="game-title" class="sr-only">Reaction Test Arena</h2>
+
+          <!-- Game Mode Selector -->
+          <div class="mode-selector-wrapper">
+            <div class="mode-tabs" role="tablist" aria-label="Game Modes">
+              <button role="tab" class="mode-tab active" data-mode="classic" id="tab-classic" aria-selected="true" aria-controls="game-panel">
+                Classic (5 Rds)
+              </button>
+              <button role="tab" class="mode-tab" data-mode="sprint" id="tab-sprint" aria-selected="false" aria-controls="game-panel">
+                Sprint (10 Rds)
+              </button>
+              <button role="tab" class="mode-tab" data-mode="zen" id="tab-zen" aria-selected="false" aria-controls="game-panel">
+                Zen Mode
+              </button>
+              <button role="tab" class="mode-tab" data-mode="practice" id="tab-practice" aria-selected="false" aria-controls="game-panel">
+                Practice (∞)
+              </button>
+            </div>
+          </div>
+
+          <!-- Session Progress Bar / Pill Indicators -->
+          <div class="game-status-hud" id="hud-tracker">
+            <div class="hud-mode-indicator">
+              <span class="hud-label">Mode:</span>
+              <span id="hud-current-mode" class="hud-val">Classic</span>
+            </div>
+            <div class="hud-round-indicator">
+              <span class="hud-label">Round:</span>
+              <span id="hud-round-text" class="hud-val">0 / 5</span>
+            </div>
+            <div class="round-pills-row" id="round-dots-container" aria-label="Round status">
+              <!-- Rendered dynamically -->
+              <span class="round-dot" data-round="1"></span>
+              <span class="round-dot" data-round="2"></span>
+              <span class="round-dot" data-round="3"></span>
+              <span class="round-dot" data-round="4"></span>
+              <span class="round-dot" data-round="5"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- The Interactive Game Arena Card -->
+        <div class="game-board-card">
+          <div 
+            id="reaction-panel" 
+            class="reaction-panel state-idle" 
+            role="button" 
+            tabindex="0" 
+            aria-live="assertive"
+            aria-label="Reaction test area. Tap, click, or press Spacebar to interact."
+          >
+            <!-- Background Glow FX -->
+            <div class="panel-glow-fx" aria-hidden="true"></div>
+
+            <!-- Panel Content Container -->
+            <div class="panel-inner-content">
+              <!-- Dynamic Icon Indicator -->
+              <div class="panel-icon-wrap" id="panel-icon-wrap">
+                <svg id="icon-lightning" class="state-icon" viewBox="0 0 24 24" width="64" height="64" fill="currentColor">
+                  <polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/>
+                </svg>
+              </div>
+
+              <!-- State Main Message -->
+              <h3 class="panel-headline" id="panel-headline">Start Reaction Test</h3>
+
+              <!-- State Subtext / Prompt -->
+              <p class="panel-prompt" id="panel-prompt">
+                Click anywhere or press <strong>Spacebar</strong> to begin.
+              </p>
+
+              <!-- Measured Time Display (For Results / False Starts) -->
+              <div class="panel-time-display hidden" id="panel-time-display">
+                <span class="time-number" id="measured-time-val">0</span>
+                <span class="time-unit">ms</span>
+              </div>
+
+              <!-- Round Feedback Sub-Message -->
+              <div class="panel-feedback-badge hidden" id="panel-feedback-badge">
+                Lightning fast!
+              </div>
+
+              <!-- Action button for explicit keyboard accessibility -->
+              <div class="panel-action-footer" id="panel-action-footer">
+                <button type="button" class="btn btn-panel-action" id="panel-action-btn">
+                  Start Test
+                </button>
+              </div>
+            </div>
+
+            <!-- Visual Ripple / Click feedback container -->
+            <div class="ripple-layer" id="ripple-layer" aria-hidden="true"></div>
+          </div>
+
+          <!-- Bottom Control Bar -->
+          <div class="board-footer-bar">
+            <div class="input-tips">
+              <span class="kbd-pill">Space</span> or <span class="kbd-pill">Enter</span> or <span class="kbd-pill">Click/Tap</span> to react
+            </div>
+            <div class="board-action-buttons">
+              <button id="restart-session-btn" class="btn btn-ghost btn-sm" title="Reset current test session">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                  <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+                </svg>
+                Reset
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dedicated Session Results Screen (Hidden initially) -->
+        <div id="results-modal" class="results-container hidden" aria-live="polite">
+          <div class="results-card glass-panel">
+            <div class="results-header">
+              <div class="results-badge" id="results-rank-badge">⚡ Esports Pro Tier</div>
+              <h3 class="results-title">Challenge Complete!</h3>
+              <p class="results-subtitle">Here is your verified reaction breakdown</p>
+            </div>
+
+            <!-- Friend Challenge Comparison Banner (if applicable) -->
+            <div id="challenge-vs-banner" class="challenge-vs-card hidden">
+              <div class="vs-header">VS Friend Challenge</div>
+              <div class="vs-stats-row">
+                <div class="vs-col you-col">
+                  <span class="vs-label">Your Avg</span>
+                  <span class="vs-val" id="vs-user-score">224 ms</span>
+                </div>
+                <div class="vs-divider">VS</div>
+                <div class="vs-col challenger-col">
+                  <span class="vs-label" id="vs-challenger-label">Friend's Score</span>
+                  <span class="vs-val" id="vs-target-score">245 ms</span>
+                </div>
+              </div>
+              <div class="vs-outcome-badge" id="vs-outcome-badge">🎉 YOU WON BY 21 ms!</div>
+            </div>
+
+            <!-- Primary Average Display -->
+            <div class="results-hero-stat">
+              <div class="hero-stat-label">Average Reaction Time</div>
+              <div class="hero-stat-value">
+                <span id="final-avg-time">0</span>
+                <span class="unit">ms</span>
+              </div>
+              <div class="hero-stat-rating" id="final-rating-text">Lightning fast reflexes!</div>
+            </div>
+
+            <!-- Detailed Metrics Grid -->
+            <div class="metrics-grid">
+              <div class="metric-card">
+                <div class="metric-icon">⚡</div>
+                <div class="metric-label">Fastest Reaction</div>
+                <div class="metric-value" id="final-fastest-time">0 ms</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-icon">⏱️</div>
+                <div class="metric-label">Slowest Reaction</div>
+                <div class="metric-value" id="final-slowest-time">0 ms</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-icon">📊</div>
+                <div class="metric-label">Median Time</div>
+                <div class="metric-value" id="final-median-time">0 ms</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-icon">⚠️</div>
+                <div class="metric-label">False Starts</div>
+                <div class="metric-value" id="final-false-starts">0</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-icon">🏆</div>
+                <div class="metric-label">Personal Best Avg</div>
+                <div class="metric-value" id="final-pb-avg">-- ms</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-icon">📈</div>
+                <div class="metric-label">Session Progress</div>
+                <div class="metric-value" id="final-improvement">--</div>
+              </div>
+            </div>
+
+            <!-- Round Breakdown Visual Bar -->
+            <div class="rounds-breakdown-section">
+              <h4 class="breakdown-title">Round Breakdown</h4>
+              <div class="rounds-list" id="rounds-breakdown-list">
+                <!-- Injected via JavaScript -->
+              </div>
+            </div>
+
+            <!-- Viral Sharing & Action Buttons -->
+            <div class="results-actions-wrapper">
+              <div class="primary-actions-row">
+                <button id="btn-share-results" class="btn btn-primary btn-lg">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                    <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92z"/>
+                  </svg>
+                  Share Score
+                </button>
+                <button id="btn-copy-challenge" class="btn btn-secondary btn-lg">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                  </svg>
+                  Copy Challenge Link
+                </button>
+                <button id="btn-download-image" class="btn btn-outline btn-lg" title="Download High-Res Graphic for Twitter/Instagram/Discord">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                    <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/>
+                  </svg>
+                  Save Image Card
+                </button>
+              </div>
+
+              <div class="secondary-actions-row">
+                <button id="btn-play-again" class="btn btn-primary btn-play-again">
+                  Play Again ↺
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ad Placement 2: Below Results (Responsive Banner) -->
+    <section class="ad-section" aria-label="Advertisement Placement 2">
+      <div class="container">
+        <div class="ad-slot ad-slot-mid" data-ad-unit="results-banner">
+          <span class="ad-badge">Advertisement</span>
+          <div class="ad-content-placeholder">
+            <span class="ad-text-sample">Responsive Ad Space (728x90 / 300x250) — Approved Ad Network Integration Slot</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Personal Dashboard & Statistics Section -->
+    <section class="stats-section" id="statistics" aria-labelledby="stats-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Performance Hub</div>
+          <h2 id="stats-title" class="section-title">Personal Statistics</h2>
+          <p class="section-description">
+            Your reaction records, progression trends, and local history stored safely in your browser.
+          </p>
+        </div>
+
+        <!-- All-Time Stats Cards -->
+        <div class="stats-summary-grid">
+          <div class="summary-card">
+            <div class="card-icon-header">
+              <span class="icon-tag">🏆</span>
+              <span class="card-caption">All-Time Best</span>
+            </div>
+            <div class="stat-highlight" id="dashboard-pb-single">-- ms</div>
+            <div class="stat-sub">Fastest single reaction</div>
+          </div>
+
+          <div class="summary-card">
+            <div class="card-icon-header">
+              <span class="icon-tag">🎯</span>
+              <span class="card-caption">Best Session</span>
+            </div>
+            <div class="stat-highlight" id="dashboard-pb-avg">-- ms</div>
+            <div class="stat-sub">5-round average record</div>
+          </div>
+
+          <div class="summary-card">
+            <div class="card-icon-header">
+              <span class="icon-tag">📊</span>
+              <span class="card-caption">Career Average</span>
+            </div>
+            <div class="stat-highlight" id="dashboard-career-avg">-- ms</div>
+            <div class="stat-sub">Across all completed tests</div>
+          </div>
+
+          <div class="summary-card">
+            <div class="card-icon-header">
+              <span class="icon-tag">🎮</span>
+              <span class="card-caption">Tests Completed</span>
+            </div>
+            <div class="stat-highlight" id="dashboard-games-played">0</div>
+            <div class="stat-sub" id="dashboard-clicks-count">0 valid reactions</div>
+          </div>
+        </div>
+
+        <!-- History Chart & Session Log -->
+        <div class="stats-detail-grid">
+          <!-- Improvement Trend Visual Chart -->
+          <div class="detail-card chart-card">
+            <div class="card-title-bar">
+              <h3 class="card-title">Reaction Time Progression</h3>
+              <span class="chart-legend">Lower is faster ↓</span>
+            </div>
+            
+            <div class="chart-container" id="chart-container">
+              <!-- Rendered via Lightweight SVG Chart -->
+              <svg id="trend-chart-svg" class="trend-chart" viewBox="0 0 600 240" preserveAspectRatio="none" aria-label="Reaction speed progression over time">
+                <!-- Injected via JavaScript -->
+              </svg>
+              <div id="chart-empty-state" class="chart-empty-state">
+                <div class="empty-icon">📈</div>
+                <p>Complete at least 2 sessions to visualize your improvement trend!</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Sessions Log -->
+          <div class="detail-card history-card">
+            <div class="card-title-bar">
+              <h3 class="card-title">Recent Sessions</h3>
+              <button id="btn-reset-stats" class="btn-text-danger" title="Clear all local statistics">
+                Reset Statistics
+              </button>
+            </div>
+
+            <div class="history-table-wrapper">
+              <table class="history-table" aria-label="Recent reaction test sessions">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Mode</th>
+                    <th>Average</th>
+                    <th>Best</th>
+                    <th>Rating</th>
+                  </tr>
+                </thead>
+                <tbody id="history-table-body">
+                  <tr class="empty-row">
+                    <td colspan="5">No completed sessions yet. Start playing above!</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leaderboard & Benchmarks Section -->
+    <section class="leaderboard-section" id="leaderboard" aria-labelledby="leaderboard-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Global Benchmarks</div>
+          <h2 id="leaderboard-title" class="section-title">Reaction Speed Leaderboard</h2>
+          <p class="section-description">
+            Compare your reflexes against calibrated biological and professional benchmarks.
+          </p>
+          <div class="leaderboard-transparency-note">
+            <span class="info-icon">ℹ️</span>
+            <span>
+              <strong>Transparency Notice:</strong> Personal entries are recorded in your local browser. Benchmark tiers represent validated scientific and esports reference averages.
+            </span>
+          </div>
+        </div>
+
+        <div class="benchmark-grid">
+          <!-- Benchmark Tiers Table -->
+          <div class="benchmark-card glass-panel">
+            <h3 class="benchmark-table-title">Human Reaction Tiers</h3>
+            <ul class="benchmark-list">
+              <li class="benchmark-item tier-godlike">
+                <div class="tier-rank">#1</div>
+                <div class="tier-details">
+                  <span class="tier-name">Godlike Reflexes ⚡</span>
+                  <span class="tier-desc">Olympic sprinters & elite combat fighters</span>
+                </div>
+                <div class="tier-time">&lt; 180 ms</div>
+              </li>
+              <li class="benchmark-item tier-f1">
+                <div class="tier-rank">#2</div>
+                <div class="tier-details">
+                  <span class="tier-name">Formula 1 Driver 🏎️</span>
+                  <span class="tier-desc">Top 1% elite visual reaction athletes</span>
+                </div>
+                <div class="tier-time">180 – 215 ms</div>
+              </li>
+              <li class="benchmark-item tier-esports">
+                <div class="tier-rank">#3</div>
+                <div class="tier-details">
+                  <span class="tier-name">Esports Professional 🎮</span>
+                  <span class="tier-desc">Pro CS2, Valorant & fighting game champions</span>
+                </div>
+                <div class="tier-time">215 – 250 ms</div>
+              </li>
+              <li class="benchmark-item tier-fast">
+                <div class="tier-rank">#4</div>
+                <div class="tier-details">
+                  <span class="tier-name">Above Average Reflexes 🎯</span>
+                  <span class="tier-desc">Active gamers and college athletes</span>
+                </div>
+                <div class="tier-time">250 – 290 ms</div>
+              </li>
+              <li class="benchmark-item tier-average">
+                <div class="tier-rank">#5</div>
+                <div class="tier-details">
+                  <span class="tier-name">Standard Human Average ⏱️</span>
+                  <span class="tier-desc">Global median for healthy young adults</span>
+                </div>
+                <div class="tier-time">290 – 340 ms</div>
+              </li>
+              <li class="benchmark-item tier-casual">
+                <div class="tier-rank">#6</div>
+                <div class="tier-details">
+                  <span class="tier-name">Casual / Warming Up ☕</span>
+                  <span class="tier-desc">Affected by fatigue, monitor delay, or latency</span>
+                </div>
+                <div class="tier-time">&gt; 340 ms</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Local Best Runs -->
+          <div class="benchmark-card glass-panel">
+            <h3 class="benchmark-table-title">Your Top Browser Runs</h3>
+            <div id="local-leaderboard-list" class="local-rank-list">
+              <!-- Dynamically populated or empty state -->
+              <div class="empty-local-ranks">
+                <p>Play tests to establish your personal hall of fame!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-section" id="how-it-works" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">How To Play</div>
+          <h2 id="how-title" class="section-title">Three Steps to Master ReflexRush</h2>
+          <p class="section-description">
+            Simple rules, millisecond precision. Keep your eyes sharp and fingers steady.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">01</div>
+            <div class="step-icon-wrap">🛑</div>
+            <h3 class="step-title">Wait for the Signal</h3>
+            <p class="step-text">
+              Hit "Start Test" and prepare. The screen will hold in tension. The delay is randomized between 1.5 and 5 seconds so you cannot predict it. Don't click too early!
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">02</div>
+            <div class="step-icon-wrap">🟢</div>
+            <h3 class="step-title">React Instantly</h3>
+            <p class="step-text">
+              The moment the screen turns electric green, tap your screen, click your mouse, or hit the Spacebar as fast as humanly possible. `performance.now()` measures the exact time.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">03</div>
+            <div class="step-icon-wrap">🏆</div>
+            <h3 class="step-title">Analyze & Challenge</h3>
+            <p class="step-text">
+              Review your 5-round average, fastest sprint, and consistency score. Create an encoded challenge link and send it to your friends to see if they can beat you!
+            </p>
+          </div>
+        </div>
+
+        <!-- Hardware & Latency Notice Card -->
+        <div class="latency-explainer-card">
+          <div class="latency-icon">⚙️</div>
+          <div class="latency-body">
+            <h4 class="latency-heading">Hardware & Input Latency Disclosure</h4>
+            <p class="latency-desc">
+              Your measured reaction time includes the human neural response plus your hardware stack: display refresh rate (a 60Hz screen adds ~16.7ms frame delay vs ~4.1ms on 240Hz), browser rendering pipelines, and input polling (wired mice poll at 1000Hz while standard Bluetooth devices can introduce 15–30ms latency). ReflexRush isolates software overhead for the cleanest possible measurement.
+            </p>
+          </div>
+          <button id="btn-open-latency-modal" class="btn btn-secondary btn-sm">Read Latency Guide</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ad Placement 3: Informational Break -->
+    <section class="ad-section" aria-label="Advertisement Placement 3">
+      <div class="container">
+        <div class="ad-slot ad-slot-footer" data-ad-unit="footer-banner">
+          <span class="ad-badge">Advertisement</span>
+          <div class="ad-content-placeholder">
+            <span class="ad-text-sample">Responsive Ad Space (728x90 / 300x250) — Approved Ad Network Integration Slot</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq" aria-labelledby="faq-title">
+      <div class="container faq-container">
+        <div class="section-header">
+          <div class="section-tag">Knowledge Base</div>
+          <h2 id="faq-title" class="section-title">Frequently Asked Questions</h2>
+        </div>
+
+        <div class="accordion" id="faq-accordion">
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false" aria-controls="faq-ans-1">
+              <span>What is a good reaction time on ReflexRush?</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-body" id="faq-ans-1" hidden>
+              <p>
+                The average human visual reaction time for young adults is between <strong>250 ms and 290 ms</strong>. Anything below 215 ms puts you in the top 5% of reflex speed (comparable to esports competitors), while scores below 180 ms approach elite athletic reflexes. Note that hardware and monitor latency can add 15–40 ms.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false" aria-controls="faq-ans-2">
+              <span>Does ReflexRush require an account or installation?</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-body" id="faq-ans-2" hidden>
+              <p>
+                No! ReflexRush is 100% free and works immediately in any modern browser on desktop, iOS, and Android. Your statistics, personal bests, and test history are stored locally on your device using HTML5 LocalStorage without tracking cookies.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false" aria-controls="faq-ans-3">
+              <span>How does Friend Challenge Mode work?</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-body" id="faq-ans-3" hidden>
+              <p>
+                When you finish a 5-round game, click <strong>"Copy Challenge Link"</strong>. The link encodes your score into the URL. When your friend opens the link, the game loads in Challenge Mode, showing your target time and letting them compete head-to-head.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false" aria-controls="faq-ans-4">
+              <span>Why do I get a "Too Early!" false start?</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-body" id="faq-ans-4" hidden>
+              <p>
+                A false start triggers if you click or tap before the screen turns green. The delay is randomized between 1.5 and 5 seconds for every round to prevent anticipation. False starts do not count toward your valid reaction average, ensuring honest data.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo-icon-wrap">
+            <svg viewBox="0 0 40 40" width="28" height="28" aria-hidden="true">
+              <circle cx="20" cy="20" r="16" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="3 3" opacity="0.6"/>
+              <polygon points="21,5 11,21 19,21 16,35 29,16 21,16" fill="url(#footerBoltGrad)" />
+              <defs>
+                <linearGradient id="footerBoltGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#20D9E8"/>
+                  <stop offset="100%" stop-color="#7C5CFC"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <span class="brand-name">Reflex<span class="accent-text">Rush</span></span>
+          <p class="footer-tagline">"How fast are your reflexes?"</p>
+        </div>
+
+        <div class="footer-links-grid">
+          <div class="footer-col">
+            <h4 class="footer-col-title">Game</h4>
+            <ul>
+              <li><a href="#game-section">Play Classic Test</a></li>
+              <li><a href="#statistics">My Statistics</a></li>
+              <li><a href="#leaderboard">Leaderboard</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col-title">Resources</h4>
+            <ul>
+              <li><a href="#how-it-works">How It Works</a></li>
+              <li><a href="#faq">FAQ</a></li>
+              <li><button type="button" class="footer-link-btn" id="footer-btn-latency">Latency Guide</button></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col-title">Legal</h4>
+            <ul>
+              <li><button type="button" class="footer-link-btn" id="footer-btn-privacy">Privacy Policy</button></li>
+              <li><button type="button" class="footer-link-btn" id="footer-btn-terms">Terms of Use</button></li>
+              <li><button type="button" class="footer-link-btn" id="footer-btn-contact">Contact</button></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright-text">
+          &copy; <span id="copyright-year">2026</span> ReflexRush. Built for speed enthusiasts worldwide.
+        </p>
+        <p class="footer-disclaimer">
+          ReflexRush is a casual reaction speed test intended for entertainment and training. It does not constitute medical diagnostics or cognitive assessment.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Reusable Modals -->
+  <!-- 1. Reset Statistics Confirmation Modal -->
+  <div id="modal-reset" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modal-reset-title">
+    <div class="modal-box glass-panel">
+      <h3 id="modal-reset-title" class="modal-title">Reset Statistics?</h3>
+      <p class="modal-body">
+        This action will permanently delete your personal bests, average score, and session history stored in this browser. This cannot be undone.
+      </p>
+      <div class="modal-actions">
+        <button id="modal-cancel-reset" class="btn btn-secondary">Cancel</button>
+        <button id="modal-confirm-reset" class="btn btn-danger">Yes, Reset All</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Privacy Policy & Legal Modal -->
+  <div id="modal-privacy" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modal-privacy-title">
+    <div class="modal-box modal-box-lg glass-panel">
+      <button class="modal-close-btn" id="modal-privacy-close" aria-label="Close modal">&times;</button>
+      <h3 id="modal-privacy-title" class="modal-title">Privacy Policy & Terms</h3>
+      <div class="modal-body modal-scrollable">
+        <h4>1. Privacy Commitment</h4>
+        <p>
+          ReflexRush does not collect, sell, or store your personal identity or personal information on external servers. All reaction measurements, personal bests, and preferences are stored exclusively on your device using HTML5 LocalStorage.
+        </p>
+        <h4>2. Display Advertising</h4>
+        <p>
+          We partner with certified third-party ad networks (such as Google AdSense) to display ads. These networks may use non-personalized cookies or identifiers to serve relevant ads in compliance with applicable privacy regulations (GDPR / CCPA).
+        </p>
+        <h4>3. Hardware Disclaimers</h4>
+        <p>
+          Reaction speeds displayed on this website are subject to the latency of your monitor (refresh rate), operating system, browser engine, and input peripheral (Bluetooth vs USB polling).
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Hardware Latency Guide Modal -->
+  <div id="modal-latency" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modal-latency-title">
+    <div class="modal-box modal-box-lg glass-panel">
+      <button class="modal-close-btn" id="modal-latency-close" aria-label="Close modal">&times;</button>
+      <h3 id="modal-latency-title" class="modal-title">Understanding Reaction & Hardware Latency</h3>
+      <div class="modal-body modal-scrollable">
+        <p>
+          Your total measured time is the sum of biological processing and hardware lag:
+        </p>
+        <ul class="latency-list">
+          <li><strong>Display Refresh Delay:</strong> A standard 60Hz monitor presents a new image every 16.67ms. A 144Hz monitor drops this to 6.94ms, and a 240Hz screen to 4.16ms.</li>
+          <li><strong>Input Device Polling:</strong> A gaming mouse polling at 1000Hz reports every 1ms. Standard Bluetooth wireless mice or phone touchscreens often exhibit 10–25ms of input lag.</li>
+          <li><strong>Audio vs Visual Cues:</strong> Humans process auditory signals faster (140–160ms) than visual signals (180–220ms) because acoustic nerve pathways are shorter.</li>
+        </ul>
+        <p>
+          ReflexRush uses browser-level <code>performance.now()</code> with microsecond accuracy to eliminate code-level overhead.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden Canvas for Generating Downloadable Viral Cards -->
+  <canvas id="share-card-canvas" width="1200" height="630" style="display:none;" aria-hidden="true"></canvas>
+
+  <!-- Global Toast Notification Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>
